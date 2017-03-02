@@ -278,31 +278,3 @@ void BigInt::print()   //输出大数
         printf("%04d",a[i]);
     printf("\n");
 }
-
-int a[3010];
-BigInt C[3010];
-
-int main()
-{
-    int T;
-    scanf("%d",&T);
-    int n;
-    while(T--)
-    {
-        scanf("%d",&n);
-        for(int i = 0;i < n;i++)
-            scanf("%d",&a[i]);
-        C[0] = 1;
-        for(int i = 1;i < n;i++)
-            C[i] = C[i-1]*(n-1-i+1)/i;
-        BigInt ans1 = 0;
-        BigInt ans2 = 0;
-        for(int i = 0;i < n;i++)
-        {
-            if((n-i)&1)ans1 = ans1 + (C[i]*a[i]);
-            else ans2 = ans2 + (C[i]*a[i]);
-        }
-        (ans1-ans2).print();
-    }
-    return 0;
-}
