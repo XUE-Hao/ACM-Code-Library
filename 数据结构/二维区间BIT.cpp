@@ -7,12 +7,12 @@
 #include <stdio.h>
 #include <string.h>
 
-const int maxn=1000+5;//长宽最大值，根据题意修改
+const int MAXN=1000+5;//长宽最大值，根据题意修改
 
 // 二维矩阵的区间和
 struct BinaryIndexedTree2D
 {
-#define MAX_BIT maxn+1
+#define MAX_BIT MAXN+1
     long long data[MAX_BIT][MAX_BIT];
     int size;
     

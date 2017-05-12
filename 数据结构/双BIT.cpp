@@ -4,9 +4,9 @@
  *O(log n)
  */
 
-const int maxn=100000;
+const int MAXN=100000+5;
 
-long long bit0[maxn+5],bit1[maxn+5];//bit0与普通bit相同，表示和。bit1表示区间所需要加的数字
+long long bit0[MAXN],bit1[MAXN];//bit0与普通bit相同，表示和。bit1表示区间所需要加的数字
 
 // 求和sum{a[t], 0 <= t <= i}
 long long sum(long long *b, int i)
@@ -29,7 +29,7 @@ long long sum(long long* bit, int from, int to)
 // 执行 a[i] += v
 void add(long long *b, int i, long long v)
 {
-    while (i <= maxn)
+    while (i < MAXN)
     {
         b[i] += v;
         i += (i & -i);

@@ -1,13 +1,13 @@
-const int N=1000005;//所需要求的最大的欧拉函数值(根据题意修改)
-int phi[N];//存放欧拉函数值
+const int MAXN=1000005;//所需要求的最大的欧拉函数值(根据题意修改)
+int phi[MAXN];//存放欧拉函数值
 void euler()//计算欧拉函数(小于n且与n互质的正整数的个数(包括1))
 {
     //phi[1]=1;//正常情况下是从2开始,phi[1]=0,但有时题意特别说明,特判phi[1]=1
-    for(int i=2;i<=N;i++)
+    for(int i=2;i<MAXN;i++)
     {//筛选求phi
         if (!phi[i])
         {
-            for(int j=i;j<=N;j+=i)
+            for(int j=i;j<MAXN;j+=i)
             {
                 if(!phi[j])
                     phi[j]=j;

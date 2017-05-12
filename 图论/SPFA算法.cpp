@@ -19,12 +19,12 @@ struct Edge
     Edge(int t,int c):to(t),cost(c){}
 };
 
-const int maxv=1000+5;//最多顶点数，根据题意修改
+const int MAXV=1000+5;//最多顶点数，根据题意修改
 const int INF=0x3f3f3f3f;
-vector<Edge> G[maxv];//用邻接表存边(G[v]是以v为起点的各个边的vector)，输入时用G[from].push_back(Edge(to,cost))
-bool vis[maxv];//在队列标志
-int cnt[maxv];//每个点的入队列次数
-int dist[maxv];//储存从起点到各个边的最短距离
+vector<Edge> G[MAXV];//用邻接表存边(G[v]是以v为起点的各个边的vector)，输入时用G[from].push_back(Edge(to,cost))
+bool vis[MAXV];//在队列标志
+int cnt[MAXV];//每个点的入队列次数
+int dist[MAXV];//储存从起点到各个边的最短距离
 
 bool SPFA(int start,int n)//起点，总共点数
 {

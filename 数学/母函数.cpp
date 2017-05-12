@@ -1,8 +1,8 @@
 ///求n可以由1~n的和组成的方案数(每种数无限个)
-const int _max = 10001;///所需要求的和的上限(根据题意修改)
+const int MAXN = 10000+3;///所需要求的和的上限(根据题意修改)
 // c1是保存各项质量砝码可以组合的数目
 // c2是中间量，保存没一次的情况
-int c1[_max], c2[_max];
+int c1[MAXN], c2[MAXN];
 int generatingFunction(int x)
 {
     int i, j, k;

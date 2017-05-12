@@ -2,10 +2,10 @@
 #define Min(a,b) (a<b?a:b)
 
 const int INF=0x3f3f3f3f;
-const int maxn=105;//maxn需要根据题目要求修改
-int cost[maxn][maxn];//cost[u][v]表示e=(u,v)的权值(不存在的情况下设为INF)
-int mincost[maxn];//从集合X发出的边到每个顶点的最小权值
-bool used[maxn];//顶点i是否包含在集合X中
+const int MAXV=105;//MAXV需要根据题目要求修改
+int cost[MAXV][MAXV];//cost[u][v]表示e=(u,v)的权值(不存在的情况下设为INF)
+int mincost[MAXV];//从集合X发出的边到每个顶点的最小权值
+bool used[MAXV];//顶点i是否包含在集合X中
 int V;//定点数
 
 int prim()//定点是从1到V

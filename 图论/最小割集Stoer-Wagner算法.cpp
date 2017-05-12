@@ -9,11 +9,11 @@
 using namespace std;
 #define INF 0x3f3f3f3f
 
-const int maxn=500+5;//图中节点的最大数目（根据题意修改）
-int G[maxn][maxn];//图的邻接矩阵表示
-int v[maxn];	//v[i]代表节点i合并到的顶点
-int w[maxn];	//定义w(A,x) = ∑w(v[i],x)，v[i]∈A
-bool vis[maxn];	//用来标记是否该点加入了A集合
+const int MAXV=500+5;//图中节点的最大数目（根据题意修改）
+int G[MAXV][MAXV];//图的邻接矩阵表示
+int v[MAXV];	//v[i]代表节点i合并到的顶点
+int w[MAXV];	//定义w(A,x) = ∑w(v[i],x)，v[i]∈A
+bool vis[MAXV];	//用来标记是否该点加入了A集合
 
 int stoer_wagner(int n)//n为节点的数目
 {

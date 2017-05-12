@@ -12,17 +12,17 @@ struct Hash
     int v,nid,next;//v是哈希值，nid是指对应的节点下标，next是指向下一个Hash节点，初始化时置为-1
 };
 
-const int maxn=500005;//自己估计大小
-const int mod=100000+7;//自己估计大小
+const int MAXN=500005;//自己估计大小
+const int MOD=100000+7;//自己估计大小（最好是素数）
 int hash_id;//开全局，用于增加Hash节点，初始化值可置为mod-1
-Hash ha[mod+maxn];
-Node node[maxn];//状态数组并用数组模拟队列或栈
+Hash ha[MOD+MAXN];
+Node node[MAXN];//状态数组并用数组模拟队列或栈
 
 void hash_init()//哈希初始化
 {
-    for(int i=0;i<mod;++i)
+    for(int i=0;i<MOD;++i)
         ha[i].next=-1;
-    hash_id=mod-1;
+    hash_id=MOD-1;
 }
 
 int get_hash(int A[][8])//得到哈希值（具体参数自行修改）
@@ -46,7 +46,7 @@ bool check(int a,int b)//自己写比较函数，a,b为结构体数组下标
 
 bool insert_hash(int v,int nid)//v是要插入状态的哈希值，nid是要插入的结构体下标
 {
-    int a=v%mod;
+    int a=v%MOD;
     int p=ha[a].next;
     while(p!=-1)//一直找到末尾
     {
