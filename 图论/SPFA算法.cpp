@@ -12,6 +12,7 @@
 #include <queue>//可以换成stack
 #include <vector>
 using namespace std;
+#define INF 0x3f3f3f3f
 
 struct Edge
 {
@@ -20,21 +21,24 @@ struct Edge
 };
 
 const int MAXV=1000+5;//最多顶点数，根据题意修改
-const int INF=0x3f3f3f3f;
 vector<Edge> G[MAXV];//用邻接表存边(G[v]是以v为起点的各个边的vector)，输入时用G[from].push_back(Edge(to,cost))
 bool vis[MAXV];//在队列标志
 int cnt[MAXV];//每个点的入队列次数
 int dist[MAXV];//储存从起点到各个边的最短距离
+int V;//顶点数
 
-bool SPFA(int start,int n)//起点，总共点数
+bool spfa(int start)//起点
 {
-    memset(vis,false,sizeof vis);
-    memset(dist,0x3f,sizeof dist);
+    for(int i=0;i<=V;++i)
+    {
+        vis[i]=false;
+        dist[i]=INF;
+        cnt[i]=0;
+    }
     vis[start]=true;
     dist[start]=0;
     queue<int> que;
     que.push(start);
-    memset(cnt,0,sizeof cnt);
     cnt[start]=1;
     while(!que.empty())
     {
@@ -51,7 +55,7 @@ bool SPFA(int start,int n)//起点，总共点数
                 {
                     vis[v]=true;
                     que.push(v);
-                    if(++cnt[v]>n)//cnt[i]为入队列次数，用来判定是否存在负环回路
+                    if(++cnt[v]>V)//cnt[i]为入队列次数，用来判定是否存在负环回路
                         return false;
                 }
             }
