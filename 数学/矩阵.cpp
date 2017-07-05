@@ -1,4 +1,6 @@
 #include <cstring>
+#include <algorithm>
+using namespace std;
 #define MOD 1000000007
 
 struct Matrix
@@ -43,5 +45,28 @@ struct Matrix
             p>>=1;
         }
         return res;
+    }
+    int det(int n)//求前n行n列的行列式的值
+    {
+        int ret=1;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+                while(a[j][i])
+                {
+                    int t=a[i][i]/a[j][i];//取模需要换成逆元
+                    for(int k=i;k<n;k++)
+                        a[i][k]=(a[i][k]-a[j][k]*t);
+                    for(int k=i;k<n;k++)
+                        swap(a[i][k],a[j][k]);
+                    ret=-ret;
+                }
+            if(a[i][i]==0)
+                return 0;
+            ret=ret*a[i][i];
+        }
+        if(ret<0)
+            ret=-ret;
+        return ret;
     }
 };
