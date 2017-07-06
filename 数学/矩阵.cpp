@@ -48,25 +48,27 @@ struct Matrix
     }
     int det(int n)//求前n行n列的行列式的值
     {
+        for(int i=0;i<n;++i)
+            for(int j=0;j<n;++j)
+                a[i][j]=(a[i][j]%MOD+MOD)%MOD;
         int ret=1;
         for(int i=0;i<n;i++)
         {
             for(int j=i+1;j<n;j++)
                 while(a[j][i])
                 {
-                    int t=a[i][i]/a[j][i];//取模需要换成逆元
-                    for(int k=i;k<n;k++)
-                        a[i][k]=(a[i][k]-a[j][k]*t);
-                    for(int k=i;k<n;k++)
+                    int t=a[i][i]/a[j][i];//这里不需要求逆元，直接除即可
+                    for(int k=i;k<n;++k)
+                        a[i][k]=((a[i][k]-a[j][k]*t)%MOD+MOD)%MOD;
+                    for(int k=i;k<n;++k)
                         swap(a[i][k],a[j][k]);
                     ret=-ret;
                 }
-            if(a[i][i]==0)
+            if(!a[i][i])
                 return 0;
-            ret=ret*a[i][i];
+            ret=ret*a[i][i]%MOD;
         }
-        if(ret<0)
-            ret=-ret;
-        return ret;
+        ret=(ret%MOD+MOD)%MOD;
+        return ret;//不取模的话要改成绝对值
     }
 };
