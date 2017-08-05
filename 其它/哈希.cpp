@@ -6,21 +6,20 @@ struct HashMap
     const static int maxn=2000000;//大概状态数大一些
     int head[mod];//链表头指针
     int next[maxn];//指向链表下一个节点
-    int cnt;//当前节点数
+    int size;//当前节点数
     int key[maxn],val[maxn];//键，值
     void clear()
     {
-        cnt=0;
+        size=0;
         memset(head,-1,sizeof head);
     }
     inline void insert(int _key,int _val)
     {
         int p=_key%mod;//取模后对应的链
-        ++cnt;
-        key[cnt]=_key;
-        val[cnt]=_val;
-        next[cnt]=head[p];
-        head[p]=cnt;
+        key[sizes]=_key;
+        val[size]=_val;
+        next[size]=head[p];
+        head[p]=size++;
     }
     int find(int _key)
     {
