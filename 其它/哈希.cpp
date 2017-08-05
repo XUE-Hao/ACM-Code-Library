@@ -16,7 +16,7 @@ struct HashMap
     inline void insert(int _key,int _val)
     {
         int p=_key%mod;//取模后对应的链
-        key[sizes]=_key;
+        key[size]=_key;
         val[size]=_val;
         next[size]=head[p];
         head[p]=size++;
