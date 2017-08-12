@@ -1,5 +1,5 @@
 
-int CaculateWeekDay(int y,int m,int d)
+int CaculateWeekDay(int y,int m,int d)//输入日期必须合法
 {
     if(m==1)
     {
