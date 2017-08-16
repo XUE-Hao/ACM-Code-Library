@@ -1,6 +1,5 @@
 /*
  * 单源最短路SPFA(也可以判是否有负环)
- * 综合考率，最短路最佳算法
  * 时间复杂度 O (kE)
  * 这个是队列实现，有时候改成栈实现会更快，很容易修改
  * 这个复杂度是不定的
@@ -9,7 +8,7 @@
  */
 
 #include <string.h>
-#include <queue>//可以换成stack
+#include <queue>
 #include <vector>
 using namespace std;
 #define INF 0x3f3f3f3f
