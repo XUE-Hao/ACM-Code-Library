@@ -3,6 +3,7 @@
  * 时间复杂度O(VE)
  * 下标从0开始
  * 无法直接通过修改次模板使得字典序最小
+ * 可以跑负权
  */
 #include <vector>
 using namespace std;
