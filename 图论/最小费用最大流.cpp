@@ -78,6 +78,7 @@ int min_cost_flow(int s,int t,int &cost)//返回的是最大流，cost存的是�
     cost=0;
     while(spfa(s,t))
     {
+        //如果流量任意，当spfa跑出的dis[t]>=0时跳出循环即可
         int the_min=INF;
         for(int i=pre[t];i!=-1;i=pre[edge[i^1].to])
             the_min=min(the_min,edge[i].cap);
