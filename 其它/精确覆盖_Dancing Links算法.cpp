@@ -6,15 +6,16 @@
 
 struct DLX
 {
-    static const int maxm=1000+3;//最大列数，根据题意修改
     static const int maxn=1000+3;//最大行数，根据题意修改
+    static const int maxm=1000+3;//最大列数，根据题意修改
     static const int maxnode=100000+3;//最大结点数，根据题意修改
     int n, m, size;//行数，列数，节点数
     int U[maxnode], D[maxnode], R[maxnode], L[maxnode], Row[maxnode], Col[maxnode];
     int H[maxn], S[maxm];
-    int ansd, ans[maxn];//最终选取的行数，每一行的id
+    int ansd, ans[maxn];//选取的行数，每一行的id
     void init(int _n, int _m)//初始化，传入行数列数
     {
+        ansd=-1;
         n = _n;
         m = _m;
         for(int i = 0;i <= m;i++)
@@ -66,7 +67,7 @@ struct DLX
                 ++S[Col[U[D[j]] = D[U[j]] = j]];
         L[R[c]] = R[L[c]] = c;
     }
-    //开始搜索，返回是否有解
+    //搜索函数，返回是否有解
     bool Dance(int d)//d为递归深度
     {
         if(ansd!=-1 && ansd<=d)//剪枝
@@ -87,7 +88,7 @@ struct DLX
             for(int j = R[i]; j != i;j = R[j])
                 remove(Col[j]);
             if(Dance(d+1))
-                return true;//如果要求输出最小行数，这里不要返回
+                return true;//如果要求输出最小行数，不要返回
             for(int j = L[i]; j != i;j = L[j])
                 resume(Col[j]);
         }
