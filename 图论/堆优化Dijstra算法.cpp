@@ -12,7 +12,7 @@ using namespace std;
 
 const int MAXV=200+3;//图的最大结点数，根据题意修改
 
-struct Node//已经确定最路的点
+struct Node//候选构成最路的点
 {
     int u, c;
     Node(int u, int c):u(u), c(c){}
