@@ -25,7 +25,7 @@ struct HashMap
     {
         int p=_key%mod;
         for(int i=head[p];~i;i=next[i])//沿着链找到目标值
-            if(val[i]==_key)
+            if(key[i]==_key)
                 return val[i];
         return -1;//没找到
     }
