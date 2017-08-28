@@ -1,6 +1,7 @@
 /*
  * 堆优化dijkstra算法求解次短路
  * 下标从0开始
+ * 如果有多条最短路，则次短路是其中一条最短路
  */
 #include <vector>
 #include <queue>
