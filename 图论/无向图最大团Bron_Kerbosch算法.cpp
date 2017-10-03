@@ -21,7 +21,7 @@ int ctz(const bitset<MAXV> &s)//返回末尾0的个数
 
 void dfs(bitset<MAXV> R,bitset<MAXV> P,bitset<MAXV> X)//已经在团中的点状压，可能在团中的点状压，不考虑的点状压
 {
-    if(P.none() && X.none())//当前团是极大团
+    if(P.none() && X.none())//当前团是极大团（如果要计数，只需修改里面的操作即可）
     {
         max_clique=max(max_clique, (int)R.count());//R中1的就是极大团中点，如果要输出构成最大团的点，这里更新时保存R中的点即可
         return ;
