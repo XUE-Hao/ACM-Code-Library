@@ -1,6 +1,8 @@
 /*
  * 最大流 Dinic算法
  * 时间复杂度 O(V^2 *E)
+ * 下标从0开始
+ * 调用dinid函数前，要设定G和V
  */
 #include <vector>
 #include <queue>
