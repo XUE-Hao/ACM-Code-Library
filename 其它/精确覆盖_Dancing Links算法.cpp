@@ -1,7 +1,7 @@
 /*
  * Dancing Links精确覆盖
  * 选择一些行，使得每列有且恰好有一个1
- * 下标从1开始
+ * 下标从1开始（第0行/列为头节点，不能使用）
  */
 
 struct DLX
@@ -68,7 +68,7 @@ struct DLX
         L[R[c]] = R[L[c]] = c;
     }
     //搜索函数，返回是否有解
-    bool Dance(int d)//d为递归深度
+    bool Dance(int d=0)//d为递归深度，外部调用时不用加参数
     {
         if(ansd!=-1 && ansd<=d)//剪枝
             return false;
