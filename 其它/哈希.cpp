@@ -15,7 +15,7 @@ struct HashMap
     }
     inline void insert(int _key,int _val)
     {
-        int p=_key%mod;//取模后对应的链
+        int p=(_key%mod+mod)%mod;//取模后对应的链
         key[size]=_key;
         val[size]=_val;
         next[size]=head[p];
@@ -23,7 +23,7 @@ struct HashMap
     }
     int find(int _key)
     {
-        int p=_key%mod;
+        int p=(_key%mod+mod)%mod;
         for(int i=head[p];~i;i=next[i])//沿着链找到目标值
             if(key[i]==_key)
                 return val[i];
