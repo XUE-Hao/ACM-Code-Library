@@ -29,4 +29,5 @@ struct HashMap
                 return val[i];
         return -1;//没找到
     }
+    // 删除时把要删除的键值对和存储的最后一个交换，再删除
 };
